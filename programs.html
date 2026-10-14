@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>특화 프로그램 | 상명대학교 한일문화콘텐츠전공</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            smu: {
+              blue: '#002c6c',
+              lightBlue: '#0052cc',
+              sky: '#e6f0ff',
+              red: '#e53e3e',
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+
+  <!-- 공통 내비게이션 바 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-smu-blue to-smu-lightBlue flex items-center justify-center text-white font-bold shadow-md shadow-blue-900/20 group-hover:scale-105 transition-transform">
+            <span class="text-lg">SMU</span>
+          </div>
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider text-smu-lightBlue uppercase">Sangmyung University</div>
+            <div class="text-lg font-bold text-slate-900 leading-tight">한일문화콘텐츠전공</div>
+          </div>
+        </a>
+
+        <!-- 데스크톱 메뉴 -->
+        <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+          <a href="index.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">홈</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">전공소개</a>
+          <a href="curriculum.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">교육과정</a>
+          <a href="career.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">진로 & 로드맵</a>
+          <a href="programs.html" class="px-3.5 py-2 rounded-xl text-smu-blue bg-blue-50/80 font-bold shadow-xs">특화 프로그램</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">적성진단 & FAQ</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://kjc.smu.ac.kr/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-smu-blue hover:bg-smu-lightBlue transition-all shadow-sm">
+            <span>학과 공식홈</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-hidden" aria-label="메뉴 열기">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 모바일 메뉴 드롭다운 -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-1 shadow-lg">
+      <a href="index.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">홈</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">전공소개</a>
+      <a href="curriculum.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">교육과정</a>
+      <a href="career.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">진로 & 로드맵</a>
+      <a href="programs.html" class="block px-3 py-2.5 rounded-lg text-smu-blue bg-blue-50 font-bold">특화 프로그램</a>
+      <a href="faq.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">적성진단 & FAQ</a>
+    </div>
+  </header>
+
+  <!-- 페이지 헤더 -->
+  <section class="bg-gradient-to-b from-blue-900 to-smu-blue text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-blue-200 text-xs font-semibold mb-4">
+        <span>Global & Campus Experiences</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">특화 프로그램</h1>
+      <p class="text-blue-100 max-w-2xl mx-auto text-base sm:text-lg">
+        일본 현지 파견 교환학생부터 전공 정기 영상 학술제까지, 다채로운 실전 기회를 제공합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 메인 컨텐츠 -->
+  <main class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- 프로그램 1: 일본 교환학생 & 해외 단기 연수 -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 text-smu-lightBlue text-xs font-bold">
+            <i data-lucide="plane" class="w-4 h-4"></i>
+            <span>Global Exchange Program</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">일본 명문대 교환학생 & 단기 문화 연수</h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            상명대학교 한일문화콘텐츠전공 학생들은 교내 글로벌 프로그램을 통해 
+            일본 유수 명문 대학교인 <strong>리츠메이칸 대학교(Ritsumeikan University)</strong>, 
+            <strong>류코쿠 대학교(Ryukoku University)</strong> 등에 정규 학기 교환학생으로 파견됩니다.
+          </p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            현지 대학에서 정규 수업을 들으며 이수한 학점은 본교 전공 학점으로 인정받으며, 
+            방학 기간에는 2~4주 단기 문화 어학 연수를 통해 일본 현지 문화 산업 현장을 직접 견학하고 체험할 수 있습니다.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#현지학점인정</span>
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#장학금지원</span>
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#현지기업탐방</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-gradient-to-br from-blue-50 to-indigo-50/50 p-6 rounded-2xl border border-blue-100 space-y-4">
+          <h3 class="font-bold text-slate-900 text-sm border-b border-blue-200/60 pb-2">협정 체결 주요 일본 대학</h3>
+          <div class="space-y-3">
+            <div class="p-3 bg-white rounded-xl border border-blue-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">리츠메이칸 대학교 (立命館大学)</div>
+              <div class="text-xs text-slate-500">일본 관서 지방 명문 사립대 / 영상·문화콘텐츠 학부 우수</div>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-blue-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">류코쿠 대학교 (龍谷大学)</div>
+              <div class="text-xs text-slate-500">교토 소재 전통 명문 대학 / 국제문화 및 인문 교류 활발</div>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-blue-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">기타 자매결연 대학 연계</div>
+              <div class="text-xs text-slate-500">도쿄, 오사카, 후쿠오카 등 일본 전역 대학들과의 어학 프로그램 연계</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프로그램 2: 정기 학술제 & 콘텐츠 제작 발표회 -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 bg-gradient-to-br from-red-50 to-amber-50/50 p-6 rounded-2xl border border-red-100 space-y-4 order-2 lg:order-1">
+          <h3 class="font-bold text-slate-900 text-sm border-b border-red-200/60 pb-2">학술제 주요 출품 분야</h3>
+          <div class="space-y-3">
+            <div class="p-3 bg-white rounded-xl border border-red-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">🎬 단편 영화 & 웹드라마</div>
+              <div class="text-xs text-slate-500">한일 양국의 감성을 융합한 시나리오 기반 영상 창작물</div>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-red-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">📹 다큐멘터리 & 브이로그</div>
+              <div class="text-xs text-slate-500">한일 문화 교류, 서브컬처 현장 심층 취재 영상</div>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-red-100 shadow-2xs">
+              <div class="font-bold text-slate-900 text-sm">📊 비교문화 기획 리서치</div>
+              <div class="text-xs text-slate-500">동아시아 문화 트렌드 및 신한류 마케팅 전략 제안서 발표</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-4 order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-50 text-smu-red text-xs font-bold">
+            <i data-lucide="clapperboard" class="w-4 h-4"></i>
+            <span>Annual Festival</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">전공 정기 학술제 & 영상제</h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            매년 가을 개최되는 전공 정기 학술제는 한일문화콘텐츠전공의 최대 축제입니다. 
+            학생들이 한 해 동안 갈고닦은 실무 역량을 발휘하여 직접 제작한 
+            영상 창작물과 비교문화 리서치 결과물을 상영관에서 발표합니다.
+          </p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            교수진과 외부 전문가, 동문 선배들이 심사위원으로 참여하여 우수작에 대한 시상과 실무 피드백을 제공하며, 
+            출품된 작품들은 학생들의 취업용 포트폴리오로 바로 활용됩니다.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#상영관발표</span>
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#우수작장학시상</span>
+            <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-medium">#선배멘토링</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프로그램 3: 유연한 다전공 / 복수전공 시스템 -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-50 text-emerald-600 text-xs font-bold mb-2">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Multi-Major Synergies</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">자유로운 복수전공 & 전과 시스템</h2>
+        <p class="text-slate-500 text-sm mt-2">
+          상명대학교는 학과 간 장벽을 허문 유연한 다전공 제도를 지원합니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-smu-blue flex items-center justify-center font-bold mb-3">IT</div>
+          <h4 class="font-bold text-slate-900 text-base mb-2">+ 컴퓨터소프트웨어</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            콘텐츠 기획력에 코딩 및 소프트웨어 개발 기술을 더해, 글로벌 게임 제작사나 모바일 플랫폼 기획자로 성장합니다.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold mb-3">ART</div>
+          <h4 class="font-bold text-slate-900 text-base mb-2">+ 디자인 & 영상예술</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            상명대 천안캠퍼스의 강점인 디자인학부, 무대미술, 영화영상학과와의 복수전공으로 시각적 연출 완성도를 극대화합니다.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-3">BIZ</div>
+          <h4 class="font-bold text-slate-900 text-base mb-2">+ 경영학 / 글로벌경영</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            마케팅, 회계, 무역 실무를 결합하여 일본계 기업 해외영업, 엔터테인먼트 비즈니스 매니저로 강력한 경쟁력을 확보합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 페이지 이동 버튼 -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <a href="career.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>이전: 진로 & 로드맵</span>
+      </a>
+      <a href="faq.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-smu-blue text-white font-bold text-sm hover:bg-smu-lightBlue transition-all shadow-md">
+        <span>다음: 적성진단 & FAQ</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-10 mt-20 border-t border-slate-800 text-xs text-center space-y-2">
+    <div class="text-slate-300 font-bold text-sm">상명대학교 한일문화콘텐츠전공</div>
+    <p>충청남도 천안시 동남구 상명대길 31 상명대학교 천안캠퍼스 글로벌인문학부대학</p>
+    <p>&copy; 2026 Sangmyung University Korean-Japanese Cultural Contents. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
+

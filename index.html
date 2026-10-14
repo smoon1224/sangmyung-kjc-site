@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상명대학교 한일문화콘텐츠전공 | SMU Korean-Japanese Cultural Contents</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Pretendard & Noto Sans JP -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            smu: {
+              blue: '#002c6c',
+              lightBlue: '#0052cc',
+              sky: '#e6f0ff',
+              red: '#e53e3e',
+              gold: '#c99700'
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', 'Noto Sans JP', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .gradient-mesh {
+      background: radial-gradient(at 0% 0%, rgba(0, 44, 108, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 100% 0%, rgba(229, 62, 62, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 50% 100%, rgba(0, 82, 204, 0.05) 0px, transparent 50%);
+    }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+
+  <!-- 공통 내비게이션 바 -->
+  <header class="sticky top-0 z-50 glassmorphism border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- 로고 -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-smu-blue to-smu-lightBlue flex items-center justify-center text-white font-bold shadow-md shadow-blue-900/20 group-hover:scale-105 transition-transform">
+            <span class="text-lg">SMU</span>
+          </div>
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider text-smu-lightBlue uppercase">Sangmyung University</div>
+            <div class="text-lg font-bold text-slate-900 leading-tight">한일문화콘텐츠전공</div>
+          </div>
+        </a>
+
+        <!-- 데스크톱 메뉴 (페이지 이동) -->
+        <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+          <a href="index.html" class="px-3.5 py-2 rounded-xl text-smu-blue bg-blue-50/80 font-bold shadow-xs">홈</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">전공소개</a>
+          <a href="curriculum.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">교육과정</a>
+          <a href="career.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">진로 & 로드맵</a>
+          <a href="programs.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">특화 프로그램</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-smu-lightBlue hover:bg-slate-100 transition-colors">적성진단 & FAQ</a>
+        </nav>
+
+        <!-- CTA 버튼 -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://kjc.smu.ac.kr/" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-smu-blue hover:bg-smu-lightBlue transition-all shadow-sm">
+            <span>학과 공식홈</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-hidden" aria-label="메뉴 열기">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 모바일 메뉴 드롭다운 -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-1 shadow-lg">
+      <a href="index.html" class="block px-3 py-2.5 rounded-lg text-smu-blue bg-blue-50 font-bold">홈</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">전공소개</a>
+      <a href="curriculum.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">교육과정</a>
+      <a href="career.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">진로 & 로드맵</a>
+      <a href="programs.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">특화 프로그램</a>
+      <a href="faq.html" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">적성진단 & FAQ</a>
+      <div class="pt-3 border-t border-slate-100">
+        <a href="https://kjc.smu.ac.kr/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-smu-blue text-white font-semibold text-sm">학과 공식홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 히어로 섹션 -->
+  <section class="relative overflow-hidden pt-14 pb-24 lg:pt-24 lg:pb-32 gradient-mesh">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-smu-blue text-xs sm:text-sm font-semibold mb-6">
+          <span class="w-2 h-2 rounded-full bg-smu-red"></span>
+          <span>상명대학교 글로벌인문학부대학</span>
+          <span class="text-slate-400">|</span>
+          <span class="text-slate-600 font-normal">천안캠퍼스</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-tight mb-6">
+          언어의 울타리를 넘어<br class="hidden sm:inline">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-smu-blue via-blue-600 to-smu-red">
+            한일 문화산업의 크리에이터
+          </span>로
+        </h1>
+
+        <p class="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed font-normal">
+          단순한 어문학을 넘어, <strong>실무 일본어</strong>와 <strong>비교문화학</strong>, 
+          그리고 <strong>SW·미디어 디지털 콘텐츠 기획</strong>을 결합한 
+          동아시아 융복합 인재의 요람입니다.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="about.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold text-white bg-smu-blue hover:bg-smu-lightBlue shadow-lg shadow-smu-blue/25 hover:scale-[1.02] transition-all">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            <span>전공 자세히 알아보기</span>
+          </a>
+          <a href="faq.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 shadow-sm hover:scale-[1.02] transition-all">
+            <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i>
+            <span>나의 전공 적합도 테스트</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메뉴별 다른 페이지 바로가기 카드 섹션 (핵심 허브) -->
+  <section class="py-16 bg-white border-t border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">전공 탐색 페이지 바로가기</h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">원하시는 메뉴를 클릭하시면 상세 정보 페이지로 이동합니다.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 카드 1: 전공소개 -->
+        <a href="about.html" class="group block p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-smu-blue hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-smu-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-smu-lightBlue uppercase tracking-wider mb-1">About Major</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-smu-blue transition-colors">전공소개 & 6대 핵심역량</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            일본학, 비교문화, 콘텐츠 기획의 3각 융합 체계와 학과가 추구하는 6대 글로벌 핵심 역량을 소개합니다.
+          </p>
+          <div class="flex items-center text-xs font-bold text-smu-blue gap-1">
+            <span>자세히 보기</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- 카드 2: 교육과정 -->
+        <a href="curriculum.html" class="group block p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-smu-blue hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Curriculum</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-smu-blue transition-colors">4개년 교육과정 로드맵</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            1학년 기초 어학부터 4학년 산학 캡스톤디자인까지, 학년별 체계적인 교과목 이수 체계를 안내합니다.
+          </p>
+          <div class="flex items-center text-xs font-bold text-smu-blue gap-1">
+            <span>커리큘럼 확인</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- 카드 3: 진로 & 로드맵 -->
+        <a href="career.html" class="group block p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-smu-blue hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-red-100 text-smu-red flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-smu-red uppercase tracking-wider mb-1">Career & Vision</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-smu-blue transition-colors">진로 & SM-CDR 트랙</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            SW기반 콘텐츠 제작자, 한일지역전문가, 일본계 다국적 기업 등 맞춤형 3대 진로 로드맵을 확인하세요.
+          </p>
+          <div class="flex items-center text-xs font-bold text-smu-blue gap-1">
+            <span>진로 트랙 보기</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- 카드 4: 특화 프로그램 -->
+        <a href="programs.html" class="group block p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-smu-blue hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">Special Programs</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-smu-blue transition-colors">교환학생 & 학술제</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            일본 리츠메이칸·류코쿠 대학교 교환학생 프로그램과 학생 제작 영상 상영 학술제 소식을 전달합니다.
+          </p>
+          <div class="flex items-center text-xs font-bold text-smu-blue gap-1">
+            <span>프로그램 보기</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- 카드 5: 적성진단 & FAQ -->
+        <a href="faq.html" class="group block p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-smu-blue hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="help-circle" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-1">Interactive & Q&A</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-smu-blue transition-colors">적성진단 & 자주 묻는 질문</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            30초 전공 적합도 테스트와 노베이스 입학, 졸업요건 등 수험생과 재학생의 핵심 궁금증을 풀어드립니다.
+          </p>
+          <div class="flex items-center text-xs font-bold text-smu-blue gap-1">
+            <span>FAQ 확인하기</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- 카드 6: 상명대학교 포털 -->
+        <a href="https://kjc.smu.ac.kr/" target="_blank" rel="noopener noreferrer" class="group block p-7 rounded-3xl bg-gradient-to-br from-smu-blue to-blue-800 text-white hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="globe" class="w-6 h-6"></i>
+          </div>
+          <div class="text-xs font-bold text-blue-200 uppercase tracking-wider mb-1">Official Portal</div>
+          <h3 class="text-xl font-bold text-white mb-2">학과 공식 홈페이지</h3>
+          <p class="text-sm text-blue-100 leading-relaxed mb-4">
+            상명대학교 전공 공지사항, 교수진 연구실, 학사 일정 및 입학처 정시/수시 모집 요강을 확인하세요.
+          </p>
+          <div class="flex items-center text-xs font-bold text-white gap-1">
+            <span>공식 웹사이트 이동</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 푸터 -->
+  <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800">
+        <div class="md:col-span-6 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center text-sm">SMU</div>
+            <span class="text-white font-extrabold text-base">상명대학교 한일문화콘텐츠전공</span>
+          </div>
+          <p class="text-xs text-slate-400">
+            충청남도 천안시 동남구 상명대길 31 (안서동) 상명대학교 글로벌인문학부대학
+          </p>
+        </div>
+        <div class="md:col-span-6 flex flex-wrap gap-4 md:justify-end items-center text-xs text-slate-400">
+          <a href="about.html" class="hover:text-white">전공소개</a>
+          <span>&bull;</span>
+          <a href="curriculum.html" class="hover:text-white">교육과정</a>
+          <span>&bull;</span>
+          <a href="career.html" class="hover:text-white">진로 & 로드맵</a>
+          <span>&bull;</span>
+          <a href="programs.html" class="hover:text-white">특화 프로그램</a>
+          <span>&bull;</span>
+          <a href="faq.html" class="hover:text-white">FAQ</a>
+        </div>
+      </div>
+      <div class="pt-6 text-center md:text-left text-xs text-slate-500">
+        &copy; 2026 Sangmyung University Korean-Japanese Cultural Contents. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
