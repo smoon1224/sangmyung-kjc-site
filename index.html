@@ -50,6 +50,48 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    header nav a[class],
+    #mobileMenu a[class] {
+      position: relative;
+      transition: color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+    header nav a[class]::after,
+    #mobileMenu a[class]::after {
+      content: "";
+      position: absolute;
+      left: 0.875rem;
+      right: 0.875rem;
+      bottom: 0.25rem;
+      height: 2px;
+      border-radius: 9999px;
+      background: #0052cc;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms ease;
+    }
+    header nav a[class]:hover,
+    header nav a[class]:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgb(0 44 108 / 12%);
+    }
+    #mobileMenu a[class]:hover,
+    #mobileMenu a[class]:focus-visible {
+      transform: translateX(4px);
+    }
+    header nav a[class]:hover::after,
+    header nav a[class]:focus-visible::after,
+    #mobileMenu a[class]:hover::after,
+    #mobileMenu a[class]:focus-visible::after {
+      transform: scaleX(1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      header nav a[class],
+      #mobileMenu a[class],
+      header nav a[class]::after,
+      #mobileMenu a[class]::after {
+        transition-duration: 0.01ms;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans">
